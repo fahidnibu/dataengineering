@@ -1,0 +1,21 @@
+# Template for ~/.dbt/profiles.yml — copy this to ~/.dbt/profiles.yml on the new
+# machine and fill in your own host + token. DO NOT commit the real file.
+#
+#   mkdir -p ~/.dbt
+#   cp profiles.example.yml ~/.dbt/profiles.yml
+#   # then edit host + token below
+#
+# Get host + http_path from Databricks: SQL Warehouse > Connection details.
+# Get a token from Databricks: User Settings > Developer > Access tokens.
+
+walmart_projest:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      catalog: walmart
+      schema: dbt_Schema
+      host: <your-workspace>.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/<your-warehouse-id>
+      token: <your-databricks-personal-access-token>
+      threads: 1

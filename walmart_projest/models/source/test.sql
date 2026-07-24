@@ -1,0 +1,1 @@
+select * From {{ source('walmart_database', 'orders') }} limit 10

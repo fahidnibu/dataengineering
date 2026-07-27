@@ -1,4 +1,3 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -31,7 +30,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   walmart_projest:
-    # Config indicated by + and applies to all files under models/source/
-    source:
-      +materialized: view
+    # Config path must mirror the folder tree under models/.
+    # Models live in models/source/silver_t and models/source/silver_b,
+    # so the `source` level MUST appear here.
+    silver_t:
+      +materialized: table
       +schema: silver_t
+    silver_b:
+      +materialized: table
+      +schema: silver_b
+    gold:
+      +materialized: table
+      +schema: gold
+      ephemeral:
+        +materialized: ephemeral

@@ -1,0 +1,8 @@
+# Packages installed into AIRFLOW'S OWN environment — importable from DAG code.
+#
+# This is the counterpart to requirement.txt, which feeds the isolated dbt venv that
+# DAG code cannot import from. Anything a DAG does `import` on belongs here.
+#
+# Installed with Airflow's official constraints file (see airflow/Dockerfile), which
+# is what stops a new dependency from quietly downgrading Airflow's core pins.
+databricks-sdk

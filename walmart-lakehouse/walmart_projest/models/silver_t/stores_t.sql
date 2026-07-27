@@ -13,6 +13,6 @@ FROM {{ source('walmart_database', 'stores') }}
 
 {% if is_incremental() %}
 
-    AND updated_timestamp > (SELECT COALESCE(MAX(updated_timestamp), '1900-01-01') FROM {{ this }})
+    WHERE updated_timestamp > (SELECT COALESCE(MAX(updated_timestamp), TIMESTAMP '1900-01-01') FROM {{ this }})
 
 {% endif %}

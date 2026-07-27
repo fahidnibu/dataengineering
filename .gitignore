@@ -1,17 +1,6 @@
-# Python / uv
-.venv/
-__pycache__/
-*.pyc
-
-# dbt artifacts (generated, machine-specific)
-**/target/
-**/dbt_packages/
-**/logs/
-**/.user.yml
-
-# dbt credentials — NEVER commit (lives in ~/.dbt/profiles.yml)
-**/profiles.yml
-
-# Editor / OS
-.vscode/
+# OS / editor
 .DS_Store
+.vscode/
+.idea/
+
+# Per-project ignores live in each project folder, e.g. walmart-lakehouse/.gitignore

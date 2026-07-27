@@ -1,0 +1,14 @@
+# dbt runtime for the walmart_projest project.
+#
+# Installed into the isolated virtualenv at /home/airflow/dbt-venv — see
+# airflow/Dockerfile. Because it is isolated from Airflow's own dependencies, exact
+# pins are safe here. Versions match pyproject.toml and the local .venv.
+#
+# This venv is for the dbt CLI ONLY. Airflow packages do not belong here — your DAGs
+# import from Airflow's environment, which this venv cannot reach. Extra providers go
+# in a separate constraint-pinned install against Airflow's own site-packages.
+#
+# Transitive deps are resolved by pip; do not paste a `pip freeze` of your laptop
+# environment in here.
+dbt-core==1.11.12
+dbt-databricks==1.12.2
